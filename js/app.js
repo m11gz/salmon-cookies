@@ -20,7 +20,7 @@ let storeHours = [
 ];
 
 function CookieCity(name, min, max, avg) {
-  this.cityName = name;
+  this.ciudad = name;
   this.minCookiesPerHour = min;
   this.maxCookiesPerHour = max;
   this.avgCookiesPerCustomer = avg;
@@ -50,7 +50,7 @@ function CookieCity(name, min, max, avg) {
     let tableRow = document.createElement("tr");
     tableBody.appendChild(tableRow);
     let cityData = document.createElement("td");
-    cityData.textContent = this.cityName;
+    cityData.textContent = this.ciudad;
     tableRow.appendChild(cityData);
 
     for (let i = 0; i < storeHours.length; i++) {
@@ -117,21 +117,21 @@ for (let i = 0; i < storeHours.length; i++) {
   topTableRow.appendChild(everyHourRow);
 }
 
-let cityGrandTotals = document.createElement("td");
-cityGrandTotals.textContent = "Daily Location Totals";
-topTableRow.appendChild(cityGrandTotals);
+let cityGT = document.createElement("td");
+cityGT.textContent = "Daily Location Totals";
+topTableRow.appendChild(cityGT);
 
 let form = document.querySelector("form");
 
 function handleSubmit(event) {
   event.preventDefault();
-  let CityName = new CookieCity(
-    event.target.CityName.value,
+  let Ciudad = new CookieCity(
+    event.target.Ciudad.value,
     parseInt(event.target.MaximumTotal.value),
     parseInt(event.target.MinimumTotal.value),
     parseInt(event.target.AvgPerPerson.value)
   );
-  CityName.render();
+  Ciudad.render();
 }
 
 form.addEventListener("submit", handleSubmit);
